@@ -1,0 +1,29 @@
+<apex:page controller="AttachmentController" >
+    <apex:form >
+        <apex:pageBlock mode="edit" title="Account Edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Next" action="{!nextPage}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Account Information" columns="2" collapsible="true">
+                <apex:inputField id="aName" value="{!accnt['Name']}"/>
+                <apex:inputField id="aNumber" value="{!accnt.AccountNumber}"/>
+                <apex:inputField id="aSite" value="{!accnt.Site}"/>
+                <apex:inputField id="aType" value="{!accnt.Type}"/>
+               <!-- <apex:inputField id="aEmail" value="{!accnt.Email__c}"/>
+                <apex:inputField id="aDomain" value="{!accnt.Domain__c}"/>
+                </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Billing Address">
+                <apex:inputField id="BlillingStreet" value="{!accnt.BillingStreet}"/>
+                <apex:inputField id="BlillingCity" value="{!accnt.BillingCity}"/>
+                <apex:inputField id="BlillingState" value="{!accnt.BillingState}"/>
+                <apex:inputField id="BlillingCountry" value="{!accnt.BillingCountry}"/>-->
+            </apex:pageBlockSection>
+            
+            </apex:pageBlock>
+            </apex:form>
+            
+            
+
+
+</apex:page>

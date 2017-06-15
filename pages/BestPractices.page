@@ -1,0 +1,5 @@
+<apex:page title="{!$Label.FirstLabel}">
+
+{!$Label.FirstLabel}
+
+</apex:page>

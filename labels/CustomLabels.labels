@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>City</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>City</shortDescription>
+        <value>Pune</value>
+    </labels>
+    <labels>
+        <fullName>CompanyName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CompanyName</shortDescription>
+        <value>Eternus</value>
+    </labels>
+    <labels>
+        <fullName>Event_FieldEmpty</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Event_FieldEmpty</shortDescription>
+        <value>Empty Field</value>
+    </labels>
+    <labels>
+        <fullName>Event_InvalidField</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event_InvalidField</shortDescription>
+        <value>Entered field is invalid</value>
+    </labels>
+    <labels>
+        <fullName>Event_InvalidJSON</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Event_InvalidJSON</shortDescription>
+        <value>Invalid JSON Format Provided</value>
+    </labels>
+    <labels>
+        <fullName>Event_InvalidObjectName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Event_InvalidObjectName</shortDescription>
+        <value>Object Name is Invalid</value>
+    </labels>
+    <labels>
+        <fullName>Event_NoJSON</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Event_NoJSON</shortDescription>
+        <value>JSON not provided</value>
+    </labels>
+    <labels>
+        <fullName>Event_NoObjectName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Event_NoObjectName</shortDescription>
+        <value>Object name is not provided</value>
+    </labels>
+    <labels>
+        <fullName>Event_RequiredNotProvided</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event_RequiredNotProvided</shortDescription>
+        <value>Required field is missing</value>
+    </labels>
+    <labels>
+        <fullName>FirstLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FirstLabel</shortDescription>
+        <value>This is my first label.</value>
+    </labels>
+    <labels>
+        <fullName>Footer</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Footer</shortDescription>
+        <value>For any queries please contact : 9765060542</value>
+    </labels>
+    <labels>
+        <fullName>Footer_New</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FooterNew</shortDescription>
+        <value>label for footer new</value>
+    </labels>
+    <labels>
+        <fullName>Invoice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invoice</shortDescription>
+        <value>Invoice</value>
+    </labels>
+    <labels>
+        <fullName>Phone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone</shortDescription>
+        <value>243-682-255</value>
+    </labels>
+    <labels>
+        <fullName>Street</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Street</shortDescription>
+        <value>Narayan peth</value>
+    </labels>
+    <labels>
+        <fullName>Successfull</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Successfull</shortDescription>
+        <value>Record Added Successfully</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,18 @@
+﻿<apex:page standardController="Account" extensions="AttachmentController" tabstyle="Account">
+	<apex:pageBlock title="Hello {!$User.FirstName}">
+		
+		<apex:pageBlockSection title="Account Information" columns="1" collapsible="true">
+		﻿﻿
+		<apex:detail relatedlist="false" />
+		
+		</apex:pageBlockSection>
+	
+	</apex:pageBlock>
+	
+	<apex:pageBlock title="Related Lists">
+		<apex:pageblockSection title="Attachments Table" columns="1" collapsible="true">
+						<apex:relatedList list="CombinedAttachments"/>
+		</apex:pageblockSection>
+	</apex:pageBlock>
+
+</apex:page>

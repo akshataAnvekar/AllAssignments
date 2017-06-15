@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ValidationSetting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ValidationSetting</value>
+    </caseValues>
+    <fields>
+        <label><!-- Deactivate ValidationRule --></label>
+        <name>Deactivate_ValidationRule__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

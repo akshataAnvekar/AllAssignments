@@ -1,0 +1,116 @@
+<apex:page standardController="Opportunity" renderAs="PDF" >
+   <apex:form styleclass="borderClass" style="border:1px solid blue;">
+      <apex:stylesheet value="{!URLFOR($Resource.InvoiceCSS)}"/>
+      <apex:pageBlock >
+         <table>
+            <tr>
+               <td>
+                  <apex:dataTable value="{!opportunity}" var="c" headerClass="tableheadcolor">
+                     <apex:column styleclass="billToHead">
+                        <h1>
+                           <apex:outputText value="{!c.Account.Name}"/>
+                        </h1>
+                        <apex:outputText value="{!c.Account.BILLINGSTREET}"/>
+                        <br/>
+                        <apex:outputText value="{!c.Account.BILLINGCITY}"/>
+                        <br/>
+                        <apex:outputText value="{!c.Account.BILLINGSTATE}"/>
+                        <br/>
+                        <apex:outputText value="{!c.Account.BILLINGPOSTALCODE}"/>
+                        <br/>
+                        <apex:outputText value="{!c.Account.Phone}"/>
+                        <br/>
+                     </apex:column>
+                  </apex:dataTable>
+               </td>
+               <td class="columnSpacing">
+                  <h3 class="invoiceLabel">
+                     <apex:outputLabel value="{!$Label.Invoice}"/>
+                  </h3>
+                  <apex:dataTable value="{!opportunity}" var="c" id="theTable" headerClass="tableheadcolor" columnsWidth="100px, 100px">
+                     <apex:column styleclass="tablehead">
+                        <apex:facet name="header" >Invoice #</apex:facet>
+                        <apex:outputText value="INV-001"/>
+                     </apex:column>
+                     <apex:column styleclass="tablehead">
+                        <apex:facet name="header">Date</apex:facet>
+                        <apex:outputText value="{!c.CloseDate}"/>
+                     </apex:column>
+                  </apex:dataTable>
+               </td>
+            </tr>
+         </table>
+         <br/> <br/><br/>
+         <table>
+            <tr>
+               <td>
+                  <apex:dataTable value="{!opportunity}" var="c" headerClass="tableheadcolor">
+                     <apex:column styleclass="billToHead">
+                        <h1>
+                           <apex:facet name="header">Bill To:</apex:facet>
+                        </h1>
+                        <apex:outputText value="{!c.Account.Name}"/>
+                        <br/>
+                        <apex:outputText value="{!c.Account.BILLINGSTREET}"/>
+                        <br/>
+                        <apex:outputText value="{!c.Account.BILLINGCITY}"/>
+                        <br/>
+                        <apex:outputText value="{!c.Account.BILLINGSTATE}"/>
+                        <br/>
+                        <apex:outputText value="{!c.Account.BILLINGPOSTALCODE}"/>
+                        <br/>
+                        <apex:outputText value="{!c.Account.Phone}"/>
+                        <br/>
+                     </apex:column>
+                  </apex:dataTable>
+               </td>
+            </tr>
+         </table>
+         <br/><br/><br/>
+         <table>
+            <tr>
+               <td>
+                  <apex:dataTable value="{!opportunity.opportunityLineItems}" var="k" headerClass="tableheadcolor3" columnsWidth="90%,90%">
+                     <apex:column style="cellspacing:30px;" styleclass="tablehead">
+                        <apex:facet name="header">Product</apex:facet>
+                        <apex:outputText value="{!k.ProductCode}"/>
+                        <br/>
+                        <apex:outputText value="{!k.Product2.Name}"/>
+                        <br/>
+                     </apex:column>
+                     <apex:column style="cellspacing:30px;" styleclass="tablehead">
+                        <apex:facet name="header">Description</apex:facet>
+                        <apex:outputText value="{!k.Description}"/>
+                     </apex:column>
+                     <apex:column styleclass="tablehead">
+                        <apex:facet name="header">Quantity</apex:facet>
+                        <apex:outputText value="{!k.Quantity}"/>
+                        <br/>
+                     </apex:column>
+                     <apex:column styleclass="tablehead">
+                        <apex:facet name="header">Discount</apex:facet>
+                        <apex:outputText value="{!k.Quantity}"/>
+                        <br/>
+                     </apex:column>
+                     <apex:column style="cellspacing:30px;" styleclass="tablehead">
+                        <apex:facet name="header">Amount</apex:facet>
+                        <apex:outputText value="{!k.totalPrice}"/>
+                        <br/>
+                     </apex:column>
+                     <br/>
+                     </apex:dataTable>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                   <p align="right">Total Amount    {!opportunity.Amount}</p>
+               </td>
+            </tr>   
+         </table>
+      </apex:pageBlock>
+      <apex:pageBlock >
+         <apex:outputLabel styleclass="footer" value="{!$Label.Footer}"/>
+         <br/>
+      </apex:pageBlock>
+   </apex:form>
+</apex:page>

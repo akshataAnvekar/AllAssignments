@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>InventoryBill</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>InventoryBills</value>
+    </caseValues>
+    <fields>
+        <label><!-- BillNo. --></label>
+        <name>BillNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bill --></label>
+        <name>Bill_Number__c</name>
+        <relationshipLabel><!-- InventoryBills --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Inventory --></label>
+        <name>Inventory_Name__c</name>
+        <relationshipLabel><!-- InventoryBills --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

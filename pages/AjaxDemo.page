@@ -1,0 +1,46 @@
+<apex:page controller="AjaxController" docType="html-5.0" id="thePage">
+    
+    <apex:image value="{!URLFOR($Resource.Header_Image, 'Lighthouse.jpg')}" />
+    
+    <apex:form id="theForm">
+        <apex:input type="number" value="{!firstNumber}" /><br/>
+        <apex:input type="number" id="second" value="{!secondNumber}" onkeyup="validate();" /><br/>
+        
+        <apex:inputField value="{!c.AccountId}"/><br/>
+        
+        <apex:commandButton action="{!calculate}" value="Calculate" rerender="output"/>
+        
+        <apex:actionFunction name="validate" action="{!debug}" />
+        
+    </apex:form>
+    
+    <br/><br/>
+    <button onClick="doCalc();">Concat</button>
+    
+    <apex:outputPanel id="output">
+        Addition -> {!addition}<br/>
+        SUb -> {!substraction}<br/>
+        Mul {!multiplication}<br/>
+        <apex:outputPanel id="divOp" rendered="{!isShow}">Div - {!division}</apex:outputPanel>
+    </apex:outputPanel>
+    
+    
+    
+    <script>
+        function doCalc() {
+            Visualforce.remoting.Manager.invokeAction(
+                "{!$RemoteAction.AjaxController.concat}",
+                3,document.getElementById("thePage:theForm:second").value,
+                function(result, event) {
+                    console.log("event", event);
+                    if (event.status) {
+                        alert("Numbers are " + result);
+                    } else {
+                        alert("There's an error");
+                    }
+                }
+            );
+        }
+    </script>
+    
+</apex:page>

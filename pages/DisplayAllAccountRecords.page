@@ -1,0 +1,95 @@
+<apex:page standardController="Account" extensions="SearchRecords" recordSetVar="accounts" tabstyle="account" sidebar="false">
+  <apex:image value="{!URLFOR($Resource.PageImage)}" width="10" height="20" />
+  <apex:pageBlock title="View Accounts">
+  <apex:pageMessages id="showMsg"/>
+    <apex:form >
+  
+        <apex:inputText value="{!getstring}" id="theTextInput" onkeypress="return noenter(event)"/>
+        <apex:commandButton action="{!searchAccounts}" value="Search" id="theSearch" rerender="list,showMsg,count" /><br/>
+        <apex:commandLink value="Clear" action="{!displayAllRecords}" rerender="list,count,theTextInput"></apex:commandLink>
+        
+        <p align="Right">
+        <apex:repeat value="{!alphabets}" var="alphabet">
+        <apex:outputLink onclick="searchMethod('{!alphabet}');return false;">| {!alphabet} </apex:outputLink>
+        </apex:repeat>
+
+        <apex:actionFunction name="searchMethod" action="{!searchByAlphabet}" rerender="list">
+        <apex:param name="idparam" assignTo="{!alpha}" value=""/>
+        </apex:actionFunction>
+        </p>
+        
+   
+    <apex:pageBlock id="list">
+    
+        <apex:outputPanel rendered="{!if(Length !=null,true,false)}" >
+           &nbsp;<p  align="right" id="count"><I>Total results found {!Length}</I></p>
+                </apex:outputPanel>
+                     <apex:pageBlockTable value="{!accounts}" var="a">
+            
+                        <apex:column headervalue="Account Name">
+                           <apex:outputLink value="/{!A.id}" id="detail">{!a.name}</apex:outputLink>
+                      </apex:column>
+            
+                        <apex:column value="{!a.Email__c}"/>
+
+                        <apex:column value="{!a.Phone}"/>
+
+                       <apex:column headervalue="Website">
+                          <apex:outputLink target="_blank" value="http://{!a.Website}">{!a.Website}</apex:outputLink>
+                       </apex:column>
+            
+                       <apex:column >
+                            <apex:commandLink value="Delete"
+                                     reRender="list" onclick="deleteAcc('{!a.id}');return false;">
+                            </apex:commandLink>
+                       </apex:column>
+            
+    </apex:pageBlockTable>
+    
+        
+        <apex:panelGrid columns="2">
+             <apex:commandLink action="{!previous}" rendered="{! HasPrevious }">Previous</apex:commandlink>
+            <apex:commandLink action="{!next}" rendered="{! HasNext }">Next</apex:commandlink>
+        </apex:panelGrid>
+        
+  </apex:pageBlock>    
+
+    </apex:form>
+
+  </apex:pageBlock>
+  <apex:includeScript value="{!URLFOR($Resource.vf_Rmoting,'vf_remoting.js')}"/>
+    <script type='text/javascript'>
+
+    function noenter(ev)  {
+
+        if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+            var search=document.getElementById('j_id0:j_id2:j_id28:theSearch');
+            search.click();
+            return false;
+
+         } else {
+
+              return true;
+
+         }
+
+     }
+     
+/*function deleteAcc(AccId) {
+            Visualforce.remoting.Manager.invokeAction(
+                "{!$RemoteAction.SearchRecords.deleteAcc}",AccId,
+                function(result, event) {
+                    console.log("event", event);
+                    if (event.status) {
+                        alert("Record deleted successfully");
+                    } else {
+                        alert(event.message);
+                    }
+                }
+            );
+        }*/
+    
+   </script>
+  
+
+</apex:page>
