@@ -1,0 +1,32 @@
+<apex:page controller="SoqlQueryGeneratorController">
+   <apex:pageMessages />
+   <apex:form >
+      <apex:selectList value="{!selectedObject}" id="object" size="1" multiselect="false">
+         <apex:selectOptions value="{!ObjectList}"/>
+         <apex:actionSupport event="onchange" action="{!fetchFields}" rerender="fieldSelect"/>
+      </apex:selectList>
+      <apex:outputPanel id="fieldSelect">
+         <c:MultiselectPicklist leftLabel="Available Fields" leftOption="{!listRelatedFields}"
+            rightLabel="Selected Fields" rightOption="{!selectedFields}" size="10" width="150px"/>
+      </apex:outputPanel>
+      <apex:selectRadio value="{!sortOrder}">
+         <apex:selectOptions value="{!items}"/>
+      </apex:selectRadio>
+      <apex:selectList value="{!recordlimit}" id="records" size="1" multiselect="false">
+         <apex:selectOptions value="{!NoOfRecords}"/>
+      </apex:selectList>
+      <apex:commandButton action="{!generateQuery}" value="execute Query" id="executeQuery" rerender="queryBlock" />
+      <apex:pageBlock id="queryBlock">
+         <apex:outputLabel >
+            <p>{!query}</p>
+         </apex:outputLabel>
+         <apex:pageBlockTable value="{!slectedRecords}" var="rec">
+            <apex:repeat value="{!selectedFieldsList}" var="fld">
+               <apex:column headervalue="{!rec[fld]}">
+                  <apex:outputLink value="/{!rec.id}" id="detail">{!rec[fld]}</apex:outputLink>
+               </apex:column>
+            </apex:repeat>
+         </apex:pageBlockTable>
+      </apex:pageBlock>
+   </apex:form>
+</apex:page>
